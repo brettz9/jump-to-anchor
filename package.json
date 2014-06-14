@@ -1,0 +1,9 @@
+{
+  "name": "jump-to-anchor",
+  "title": "jump-to-anchor",
+  "id": "jid1-Dk60hv2FYTKPOw",
+  "description": "Jump to the closest anchor for a selection",
+  "author": "Brett Zamir",
+  "license": "MIT",
+  "version": "0.1.0"
+}
