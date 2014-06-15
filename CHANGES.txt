@@ -1,4 +1,4 @@
-STILL NOT FUNCTIONAL!
+
 
 0.1.0
-* 
+* Initial version
