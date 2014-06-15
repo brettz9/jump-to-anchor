@@ -3,6 +3,8 @@
 Context menu item to jump to the closest anchor to the selected text (if any)
 or to the right-click point otherwise.
 
+Install at [AMO](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/).
+
 # Detection algorithm
 
 1. If the first non-whitespace/non-comment child of the clicked node is an
@@ -16,9 +18,19 @@ deepest last child for an anchor, and abandon steps to redirect if present.
 in step #2 or #3,
 check it for an anchor and abandon steps and redirect if found.
 
+# Related add-ons
+
+I mostly just wanted a restartless extension which could auto-jump to the
+closest anchor above the click point, and from there, copy it if desired.
+
+If you want something provides options such as highlighting the anchors on a
+page or adds context menu items to copy and bookmark the anchors, see
+[Show Anchors 2](https://addons.mozilla.org/en-US/firefox/addon/show-anchors-2/).
+
 # Credits
 
-The icon for the extension indicated at [AMO]() was obtained from
-http://commons.wikimedia.org/wiki/File:Hash-trans.png under the
+The icon for this extension as available at
+[AMO](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/)
+was obtained from http://commons.wikimedia.org/wiki/File:Hash-trans.png under the
 Creative Commons Attribution-Share Alike 3.0 Unported license,
 but that icon is not bundled in this repository.
