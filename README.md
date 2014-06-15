@@ -15,3 +15,10 @@ deepest last child for an anchor, and abandon steps to redirect if present.
 3. If there is a parent node of the clicked node or of a node found previously
 in step #2 or #3,
 check it for an anchor and abandon steps and redirect if found.
+
+# Credits
+
+The icon for the extension indicated at [AMO]() was obtained from
+http://commons.wikimedia.org/wiki/File:Hash-trans.png under the
+Creative Commons Attribution-Share Alike 3.0 Unported license,
+but that icon is not bundled in this repository.
