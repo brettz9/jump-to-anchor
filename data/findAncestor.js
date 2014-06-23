@@ -1,8 +1,24 @@
 /*globals self */
 /*jslint vars:true, browser:true*/
+(function () {'use strict';
 
-self.on('click', function (node) {'use strict'; // , data
+function l (s) {console.log(s);}
 
+var x = 0, y = 0;
+window.addEventListener('click', function (e) {
+	// if (e.button === 2) { // Avoid grabbing for the actual selection // Doesn't seem to execute on single click anyways
+		x = e.pageX;
+		y = e.pageY;
+	// }
+});
+self.on('click', function () { // , data
+	// For some reason, this does not seem to work very well
+	x = x > window.mozInnerScreenX ? window.mozInnerScreenX : (x < 0 ? 0 : x);
+	y = y > window.mozInnerScreenY ? window.mozInnerScreenY : (y < 0 ? 0 : y);
+	var caretPosition = document.caretPositionFromPoint(x, y);
+	var node = caretPosition.offsetNode;
+
+	/*
 	// Only declare functions when context menu clicked
 	// Adapted from https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Whitespace_in_the_DOM
 	var is_all_ws = function (nod) {
@@ -20,7 +36,7 @@ self.on('click', function (node) {'use strict'; // , data
 		}
 		return null;
 	}
-	
+	*/
 	var findDeepestLastChild = function (elem) {
 		var oldElem;
 		do {
@@ -38,12 +54,12 @@ self.on('click', function (node) {'use strict'; // , data
 	};
 
 	try {
-		var deepestSafeNode, fsc, fec;
 		do {
 			if (foundAnchor(node)) {
 				break;
 			}
-			deepestSafeNode = node;
+			/*
+			var fsc, fec, deepestSafeNode = node;
 			while (deepestSafeNode) { // e.g., the first node returned was <h1><a name="pg1"></a> Text</h1>
 				fsc = first_significant_child(deepestSafeNode);
 				fec = deepestSafeNode.firstElementChild;
@@ -55,6 +71,7 @@ self.on('click', function (node) {'use strict'; // , data
 				}
 				deepestSafeNode = fec;
 			}
+			*/
 			if (node.previousElementSibling) {
 				node = findDeepestLastChild(node.previousElementSibling);
 			}
@@ -69,3 +86,5 @@ self.on('click', function (node) {'use strict'; // , data
 		}
 	}
 });
+
+}());
