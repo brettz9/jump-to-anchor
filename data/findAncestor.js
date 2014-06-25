@@ -11,7 +11,7 @@ window.addEventListener('click', function (e) {
 		x = e.clientX;
 		y = e.clientY;
 	}
-});
+}, true);
 
 self.on('click', function (node) { // , data
 	if (!x) { // Since this is not showing the first time, we fire on the node, though this means it will be less than perfect for first click!
