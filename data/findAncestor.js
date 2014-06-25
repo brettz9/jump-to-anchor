@@ -4,34 +4,21 @@
 
 function l (s) {console.log(s);}
 
-var x = 0, y = 0, coordCatching;
-
-function coordCatcher (e) {l('a');
-    x = e.clientX;
-    y = e.clientY;
-    l('x:'+x);
-    // Set up a less accurate but less performance-intensive polling of mouse coords
-    window.removeEventListener('mouseover', coordCatcher, true);
-    coordCatching = setTimeout(function () {
-        l('timeout');
-        window.addEventListener('mouseover', coordCatcher, true);
-    }, 100);
-}
-// Listen via mousemove until click events start registering
-window.addEventListener('mouseover', coordCatcher, true);
+var x, y;
 
 window.addEventListener('click', function (e) {
-    if (coordCatching) {
-        window.removeEventListener('mouseover', coordCatcher, true);
-        clearTimeout(coordCatching);
-    }
-    if (e.button === 2) { // Avoid grabbing for the actual selection // Doesn't seem to execute on single click anyways but add for good measure
-        x = e.clientX;
-        y = e.clientY;
-    }
-}, true);
+	if (e.button === 2) { // Avoid grabbing for the actual selection // Doesn't seem to execute on single click anyways but add for good measure
+		x = e.clientX;
+		y = e.clientY;
+	}
+});
 
-self.on('click', function () { // , data
+self.on('click', function (node) { // , data
+	if (!x) { // Since this is not showing the first time, we fire on the node, though this means it will be less than perfect for first click!
+		node.dispatchEvent(new MouseEvent('click', {
+			button: 2
+		}));
+	}
 	x = Math.max(0, Math.min(window.innerWidth, x));
 	y = Math.max(0, Math.min(window.innerHeight, y));
 	var caretPosition = document.caretPositionFromPoint(x, y);
