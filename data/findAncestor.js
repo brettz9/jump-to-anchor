@@ -40,25 +40,18 @@ self.on('click', function (node) { // , data
 		}
 	};
 
-	try {
-		do {
-			if (foundAnchor(node)) {
-				break;
-			}
+    do {
+        if (foundAnchor(node)) {
+            break;
+        }
 
-			if (node.previousElementSibling) {
-				node = findDeepestLastChild(node.previousElementSibling);
-			}
-			else {
-				node = node.parentNode;
-			}
-		} while (node);
-	}
-	catch(e) {
-		if (e.toString() !== 'escape') {
-			throw e;
-		}
-	}
+        if (node.previousElementSibling) {
+            node = findDeepestLastChild(node.previousElementSibling);
+        }
+        else {
+            node = node.parentNode;
+        }
+    } while (node);
 });
 
 }());
