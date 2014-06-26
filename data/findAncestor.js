@@ -6,7 +6,7 @@ function l (s) {console.log(s);}
 
 var x, y;
 
-window.addEventListener('click', function (e) {
+window.addEventListener('click', function (e) {l('click');
 	if (e.button === 2) { // Avoid grabbing for the actual selection // Doesn't seem to execute on single click anyways but add for good measure
 		x = e.clientX;
 		y = e.clientY;
@@ -14,6 +14,12 @@ window.addEventListener('click', function (e) {
 }, true);
 
 self.on('click', function (node) { // , data
+    setTimeout(function () {
+        findAncestor(node);
+    }, 10000);
+});
+
+function findAncestor (node) {
 	if (!x) { // Since this is not showing the first time, we fire on the node, though this means it will be less than perfect for first click!
 		node.dispatchEvent(new MouseEvent('click', {
 			button: 2
@@ -52,6 +58,6 @@ self.on('click', function (node) { // , data
             node = node.parentNode;
         }
     } while (node);
-});
+}
 
 }());
