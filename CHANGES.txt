@@ -1,3 +1,6 @@
+0.3.0
+* Avoid problem with getting correct anchor on first-click
+
 0.2.1
 0.2.0
 * Provide better detection, but due to apparent SDK limitations, only after first click
