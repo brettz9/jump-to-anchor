@@ -13,11 +13,19 @@ window.addEventListener('click', function (e) {
 	}
 }, true);
 
-function jumpToAnchor () {
+function jumpToAnchor (hasSelection) {
 	x = Math.max(0, Math.min(window.innerWidth, x));
 	y = Math.max(0, Math.min(window.innerHeight, y));
-	var caretPosition = document.caretPositionFromPoint(x, y);
-	var node = caretPosition.offsetNode;
+
+	var node;
+	if (hasSelection) {
+		// For some reason, we can't just check ourselves here for getSelection().anchorNode, as it is always present
+		node = document.getSelection().anchorNode;
+	}
+	else {
+		var caretPosition = document.caretPositionFromPoint(x, y);
+		node = caretPosition.offsetNode;
+	}
 
 	var findDeepestLastChild = function (elem) {
 		var oldElem;
@@ -49,8 +57,8 @@ function jumpToAnchor () {
     } while (node);
 }
 
-self.port.on('getMouseCoords', function () {
-	jumpToAnchor();
+self.port.on('jumpToAnchor', function (hasSelection) {
+	jumpToAnchor(hasSelection);
 });
 
 }());
