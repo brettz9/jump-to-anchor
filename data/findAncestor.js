@@ -1,4 +1,4 @@
-/*globals self */
+/*globals self*/
 /*jslint vars:true, browser:true*/
 (function () {'use strict';
 
@@ -13,15 +13,16 @@ window.addEventListener('click', function (e) {
 	}
 }, true);
 
-self.on('click', function (node) { // , data
-	if (!x) { // Since this is not showing the first time, we fire on the node, though this means it will be less than perfect for first click!
-		node.dispatchEvent(new MouseEvent('click', {
-			button: 2
-		}));
-	}
+function jumpToAnchor () {
 	x = Math.max(0, Math.min(window.innerWidth, x));
 	y = Math.max(0, Math.min(window.innerHeight, y));
+	l('x:'+x);
+	l('y:'+y);
 	var caretPosition = document.caretPositionFromPoint(x, y);
+	if (!caretPosition) {
+		l('exit');
+		return;
+	}
 	var node = caretPosition.offsetNode;
 
 	var findDeepestLastChild = function (elem) {
@@ -35,7 +36,7 @@ self.on('click', function (node) { // , data
 	var foundAnchor = function (node) {
 		if (node.id || (node.name && node.nodeName.toLowerCase() === 'a')) {
 			location.hash = '#' + (node.id || node.name);
-			// self.postMessage(node.id);
+			// self.port.emit(node.id);
 			return true;
 		}
 	};
@@ -52,6 +53,14 @@ self.on('click', function (node) { // , data
             node = node.parentNode;
         }
     } while (node);
+}
+
+self.port.on('getMouseCoords', function (coords) {
+	if (coords) {
+		x = coords[0];
+		y = coords[1];
+	}
+	jumpToAnchor();
 });
 
 }());
