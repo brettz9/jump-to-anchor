@@ -7,17 +7,17 @@ Install at [AMO](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/)
 
 # Detection algorithm
 
-1. If the first non-whitespace/non-comment child of the clicked node is an
-element (as opposed to text which may have been the text clicked), check
-it for an `id=` or `<a name=>`, and if present, redirect to it and abandon steps.
-If none found, keep checking for this recursively until there are no more
-descendents.
-2. If there is a previous adjacent element sibling of the clicked node, check
-from its deepest last child for an anchor, and abandon steps to redirect if
-present.
-3. If there is a parent node of the clicked node or of a node found previously
-in step #2 or #3,
-check it for an anchor and abandon steps and redirect if found.
+1. If the clicked node is text, skip to step #3.
+2. If it is an element, check it for an `id=` or `<a name=>`,
+and if present, redirect to it and abandon steps.
+3. If there is a previous adjacent element sibling of the clicked node, check
+from its deepest last child for an anchor, and abandon steps
+to redirect if an anchor is found.
+4. Go back to #3
+as long as there are previous adjacent element siblings.
+5. Check for anchor on the parent node, and abandon steps
+to redirect if an anchor is found. If not, go to step #4.
+6. Do nothing.
 
 # Related add-ons
 
