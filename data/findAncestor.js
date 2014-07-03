@@ -16,13 +16,7 @@ window.addEventListener('click', function (e) {
 function jumpToAnchor () {
 	x = Math.max(0, Math.min(window.innerWidth, x));
 	y = Math.max(0, Math.min(window.innerHeight, y));
-	l('x:'+x);
-	l('y:'+y);
 	var caretPosition = document.caretPositionFromPoint(x, y);
-	if (!caretPosition) {
-		l('exit');
-		return;
-	}
 	var node = caretPosition.offsetNode;
 
 	var findDeepestLastChild = function (elem) {
@@ -55,11 +49,7 @@ function jumpToAnchor () {
     } while (node);
 }
 
-self.port.on('getMouseCoords', function (coords) {
-	if (coords) {
-		x = coords[0];
-		y = coords[1];
-	}
+self.port.on('getMouseCoords', function () {
 	jumpToAnchor();
 });
 
