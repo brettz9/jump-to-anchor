@@ -5,5 +5,5 @@
   "description": "Context menu item to jump to the closest anchor to the selected text (if any) or to the right-click point otherwise.",
   "author": "Brett Zamir",
   "license": "MIT",
-  "version": "0.3.1"
+  "version": "0.3.2"
 }

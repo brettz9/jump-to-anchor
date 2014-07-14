@@ -1,3 +1,6 @@
+0.3.2
+* Fix behavior so that navigating backward or forward is supported
+
 0.3.1
 * Fix selection-based detection
 
