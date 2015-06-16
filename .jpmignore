@@ -1,2 +1,9 @@
 *.lnk
+*.xpi
+doc
+test
+
+.git
+.gitignore
+.jpmignore
 safari-jump-to-anchor.safariextension
