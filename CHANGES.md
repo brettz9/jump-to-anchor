@@ -1,3 +1,6 @@
+# 0.3.4
+- Fix issue #1 ; beyond highlighted text and page selection clicks outside of nodes, allow clicking on nodes
+
 # 0.3.3
 - jpm packaging
 
