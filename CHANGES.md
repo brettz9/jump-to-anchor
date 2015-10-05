@@ -1,3 +1,6 @@
+# 0.4.0
+- Add support for private window browsing
+
 # 0.3.4
 - Fix issue #1 ; beyond highlighted text and page selection clicks outside of nodes, allow clicking on nodes
 
