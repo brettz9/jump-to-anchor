@@ -6,6 +6,14 @@
   "description": "Context menu item to jump to the closest anchor to the selected text (if any) or to the right-click point otherwise.",
   "author": "Brett Zamir",
   "license": "MIT",
-  "version": "0.4.0",
+  "version": "0.5.0",
+  "repository": "https://github.com/brettz9/jump-to-anchor/",
+  "contributors": [],
+  "dependencies": {},
+  "engines": {
+    "firefox": ">=38.0a1"
+  },
+  "bugs": "https://github.com/brettz9/jump-to-anchor/issues/",
+  "keywords": ["jetpack"],
   "permissions": {"private-browsing": true}
 }
