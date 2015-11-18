@@ -7,4 +7,5 @@ test
 .git
 .gitignore
 .jpmignore
+.eslintrc
 safari-jump-to-anchor.safariextension
