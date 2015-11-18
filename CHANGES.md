@@ -1,3 +1,6 @@
+# 0.5.0
+- Add support for file: protocol
+
 # 0.4.0
 - Add support for private window browsing
 
