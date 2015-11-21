@@ -1,4 +1,4 @@
-# 0.5.1
+# 0.5.2
 
 -   Distinguish context menu text depending on whether relative
     to click point or highlighted selection

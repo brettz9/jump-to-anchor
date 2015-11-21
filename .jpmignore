@@ -8,4 +8,5 @@ test
 .gitignore
 .jpmignore
 .eslintrc
+.mdastrc
 safari-jump-to-anchor.safariextension
