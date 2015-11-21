@@ -7,17 +7,21 @@ Install at [AMO](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/)
 
 # Detection algorithm
 
-1. If the clicked node is text, skip to step #3.
-2. If it is an element, check it for an `id=` or `<a name=>`,
-and if present, redirect to it and abandon steps.
-3. If there is a previous adjacent element sibling of the clicked node, check
-from its deepest last child for an anchor, and abandon steps
-to redirect if an anchor is found.
-4. Go back to #3
-as long as there are previous adjacent element siblings.
-5. Check for anchor on the parent node, and abandon steps
-to redirect if an anchor is found. If not, go to step #4.
-6. Do nothing.
+1.  If the clicked node is text, skip to step #3.
+
+1.  If it is an element, check it for an `id=` or `<a name=>`,
+    and if present, redirect to it and abandon steps.
+
+1.  If there is a previous adjacent element sibling of the
+    clicked node, check from its deepest last child for an
+    anchor, and abandon steps to redirect if an anchor is found.
+
+1.  Go back to #3 as long as there are previous adjacent element siblings.
+
+1.  Check for anchor on the parent node, and abandon steps
+      to redirect if an anchor is found. If not, go to step #4.
+
+1.  Do nothing.
 
 # Related add-ons
 
@@ -32,6 +36,6 @@ page or adds context menu items to copy and bookmark the anchors, see
 
 The icon for this extension as available at
 [AMO](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/)
-was obtained from http://commons.wikimedia.org/wiki/File:Hash-trans.png under the
-Creative Commons Attribution-Share Alike 3.0 Unported license,
+was obtained from <http://commons.wikimedia.org/wiki/File:Hash-trans.png>
+under the Creative Commons Attribution-Share Alike 3.0 Unported license,
 but that icon is not bundled in this repository.
