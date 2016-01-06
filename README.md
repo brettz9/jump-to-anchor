@@ -28,8 +28,8 @@ Install at [AMO](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/)
 I mostly just wanted a restartless extension which could auto-jump to the
 closest anchor above the click point, and from there, copy it if desired.
 
-If you want something provides options such as highlighting the anchors on a
-page or adds context menu items to copy and bookmark the anchors, see
+If you want something which provides options such as highlighting the anchors
+on a page or adds context menu items to copy and bookmark the anchors, see
 [Show Anchors 2](https://addons.mozilla.org/en-US/firefox/addon/show-anchors-2/).
 
 # Credits
