@@ -1,3 +1,11 @@
+# 0.6.0
+
+@jomo:
+
+-   Ported extension to WebExtensions for Firefox 57+ support
+-   Improve selection detection
+-   Convert to ES6
+
 # 0.5.2
 
 -   Distinguish context menu text depending on whether relative
