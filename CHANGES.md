@@ -1,8 +1,12 @@
 # 0.6.0
 
+@brettz9
+-   Minor tweaks to @jomo's code
+
 @jomo:
 
--   Ported extension to WebExtensions for Firefox 57+ support
+-   Ported extension to WebExtensions for Firefox 57+ support;
+    also Google Chrome-compatible
 -   Improve selection detection
 -   Convert to ES6
 
