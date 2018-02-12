@@ -4,7 +4,8 @@
 
 -   Ported extension to WebExtensions for Firefox 57+ support;
     also Google Chrome-compatible
--   Improve selection detection
+-   Improve selection detection (also removes highlighted as separate
+    feature; will use highlighted if any highlighted)
 -   Convert to ES6
 
 @brettz9
