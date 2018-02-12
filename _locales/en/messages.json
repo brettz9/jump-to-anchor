@@ -2,6 +2,9 @@
   "extensionName": {
     "message": "jump-to-anchor"
   },
+  "extensionShortName": {
+    "message": "jump-anchor"
+  },
   "extensionDescription": {
     "message": "Context menu item to jump to the closest anchor to the selected text (if any) or to the right-click point otherwise."
   },

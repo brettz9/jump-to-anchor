@@ -2,9 +2,10 @@
   "manifest_version": 2,
 
   "name": "__MSG_extensionName__",
+  "short_name": "__MSG_extensionShortName__",
   "description": "__MSG_extensionDescription__",
   "author": "Brett Zamir",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "homepage_url": "https://github.com/brettz9/jump-to-anchor/",
 
   "permissions": ["contextMenus"],
