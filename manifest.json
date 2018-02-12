@@ -4,7 +4,7 @@
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
   "author": "Brett Zamir",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "homepage_url": "https://github.com/brettz9/jump-to-anchor/",
 
   "permissions": ["contextMenus"],
@@ -20,7 +20,7 @@
   },
 
   "icons": {
-    "48": "icon.svg"
+    "128": "icon.png"
   },
 
   "default_locale": "en"
