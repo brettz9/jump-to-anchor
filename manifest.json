@@ -10,7 +10,7 @@
   "permissions": ["contextMenus"],
   "content_scripts": [{
     "matches": ["<all_urls>"],
-    "js": ["lib/content.js"],
+    "js": ["lib/browser-polyfill.min.js", "lib/content.js"],
     "run_at": "document_start",
     "all_frames": true
   }],
