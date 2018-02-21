@@ -3,7 +3,8 @@
 Context menu item to jump to the closest anchor to the selected text (if any)
 or to the right-click point otherwise.
 
-Install at [AMO](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/).
+Install for [Firefox (AMO)](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/)
+or [Chrome](https://chrome.google.com/webstore/detail/jump-to-anchor/fhbjjkmbahpmoegppmljagmakkeomlmb).
 
 # Detection algorithm
 
