@@ -1,3 +1,17 @@
+# 0.7.0
+
+- Enhancement: Add option to allow separate context menu items for
+    jumping relative to click point/selection
+
+# 0.6.2
+
+-   Chrome does appear to need `document.caretRangeFromPoint` for now
+-   Add short name
+
+# 0.6.1
+
+-   Chrome-required icon fixes and screenshot
+
 # 0.6.0
 
 @jomo:

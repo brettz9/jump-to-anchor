@@ -5,10 +5,10 @@
   "short_name": "__MSG_extensionShortName__",
   "description": "__MSG_extensionDescription__",
   "author": "Brett Zamir",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "homepage_url": "https://github.com/brettz9/jump-to-anchor/",
 
-  "permissions": ["contextMenus"],
+  "permissions": ["contextMenus", "storage"],
   "content_scripts": [{
     "matches": ["<all_urls>"],
     "js": ["lib/browser-polyfill.min.js", "lib/content.js"],
@@ -19,10 +19,22 @@
   "background": {
     "scripts": ["lib/browser-polyfill.min.js", "lib/background.js"]
   },
+  "options_ui": {
+    "page": "options/options.html",
+    "browser_style": true,
+    "chrome_style": true,
+    "open_in_tab": false
+  },
 
   "icons": {
     "128": "icon.png"
   },
 
-  "default_locale": "en"
+  "default_locale": "en",
+
+  "applications": {
+    "gecko": {
+      "id": "jid1-Dk60hv2FYTKPOw@jetpack"
+    }
+  }
 }

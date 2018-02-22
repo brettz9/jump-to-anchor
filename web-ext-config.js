@@ -5,6 +5,7 @@ module.exports = {
     ignoreFiles: [
         '.DS_Store',
         '.eslintrc',
+        '.eslintignore',
         '.remarkrc',
         '*.zip',
         '*.xpi',

@@ -38,10 +38,3 @@ on a page or adds context menu items to copy and bookmark the anchors, see
 The icon for this extension was obtained (and SVG optimized) from
 <https://commons.wikimedia.org/wiki/File:Hash-transbg.svg> under the
 Creative Commons CC0 1.0 Universal Public Domain Dedication.
-
-# To-dos
-
-1. Consider returning to adding back two context menu items, one for jumping
-    to an anchor relative to the mouse coordinates and another relative to
-    text selection (esp. for cases where one may have forgotten about some text
-    selection)

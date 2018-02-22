@@ -10,5 +10,14 @@
   },
   "jumpToAnchor": {
     "message": "Jump to anchor"
+  },
+  "jumpToAnchorSelection": {
+    "message": "Jump to anchor (relative to selection)"
+  },
+  "jumpToAnchorClick": {
+    "message": "Jump to anchor (relative to click point)"
+  },
+  "separateContextMenus": {
+    "message": "Use separate context menus (one relative to right-click point and another to selection)?"
   }
 }
