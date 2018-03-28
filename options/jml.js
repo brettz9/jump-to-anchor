@@ -312,6 +312,24 @@ function _addEvent(el, type, handler, capturing) {
 }
 
 /**
+* Creates a text node of the result of resolving an entity or character reference
+* @param {'entity'|'decimal'|'hexadecimal'} type Type of reference
+* @param {String} prefix Text to prefix immediately after the "&"
+* @param {String} arg The body of the reference
+* @returns {Text} The text node of the resolved reference
+*/
+function _createSafeReference(type, prefix, arg) {
+    // For security reasons related to innerHTML, we ensure this string only contains potential entity characters
+    if (!arg.match(/^\w+$/)) {
+        throw new TypeError('Bad ' + type);
+    }
+    var elContainer = doc.createElement('div');
+    // Todo: No workaround for XML?
+    elContainer.innerHTML = '&' + prefix + arg + ';';
+    return doc.createTextNode(elContainer.innerHTML);
+}
+
+/**
 * @param {String} n0 Whole expression match (including "-")
 * @param {String} n1 Lower-case letter match
 * @returns {String} Uppercased letter
@@ -806,6 +824,9 @@ var jml = function jml() {
                         }();
 
                         if (_ret2 === 'break') break;
+                    }case 'innerHTML':
+                    if (attVal != null) {
+                        elem.innerHTML = attVal;
                     }
                     break;
                 case 'htmlFor':case 'for':
