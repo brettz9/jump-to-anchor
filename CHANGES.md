@@ -1,3 +1,12 @@
+# 0.9.0
+
+- Breaking change: For Chrome, default to merging context menu items
+    option (since a right-click more easily ends up selecting text in Chrome)
+- Fix: Polyfills link in options dialog
+- Build: Use automated no-`innerHTML` build of Jamilih for easier
+    maintainability along with AMO approval
+- yarn: Add `yarn.lock`
+
 # 0.8.0
 
 - Breaking change: Change default for separate context menus to true (since

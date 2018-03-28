@@ -2,8 +2,12 @@
 /* globals jml */
 'use strict';
 document.title = browser.i18n.getMessage('jumpToAnchor'); // If switch to tabs
+
+const backgroundPage = browser.extension.getBackgroundPage();
+const isFirefox = backgroundPage.isFirefox;
+
 (async () => {
-const {separateContextMenus = true} = await browser.storage.local.get(
+const {separateContextMenus = isFirefox} = await browser.storage.local.get(
     'separateContextMenus'
 );
 jml('section', [
@@ -17,7 +21,6 @@ jml('section', [
                     await browser.storage.local.set({
                         separateContextMenus: this.checked
                     });
-                    const backgroundPage = browser.extension.getBackgroundPage();
                     backgroundPage.updateContextMenus();
                 }
             }
