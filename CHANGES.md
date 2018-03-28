@@ -1,3 +1,16 @@
+# 0.8.0
+
+- Breaking change: Change default for separate context menus to true (since
+    now won't show when no highlighted text present)
+- Enhancement: Avoid showing selection context menu when no selected text
+    present
+- Linting: Use `eslint-config-standard` and apply fixes
+- npm: Add back `package.json` with ESLint devDeps and webext polyfill dep
+- npm: Specify scripts for running specific versions of Firefox
+- Build: Move screenshot file and ignore it from build (also avoid
+    redundancies in ignores); put webext polyfill in polyfills folder,
+    auto-copiable from node_modules
+
 # 0.7.0
 
 - Enhancement: Add option to allow separate context menu items for

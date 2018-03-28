@@ -3,6 +3,10 @@
 Context menu item to jump to the closest anchor to the selected text (if any)
 or to the right-click point otherwise.
 
+Has option (on by default) on providing separate menu items for jumping to
+an anchor relative to selected text vs. the click point. Will otherwise always
+default to selected text when present.
+
 Install for [Firefox (AMO)](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/)
 or [Chrome](https://chrome.google.com/webstore/detail/jump-to-anchor/fhbjjkmbahpmoegppmljagmakkeomlmb).
 
@@ -26,7 +30,7 @@ or [Chrome](https://chrome.google.com/webstore/detail/jump-to-anchor/fhbjjkmbahp
 
 # Related add-ons
 
-I mostly just wanted a restartless extension which could auto-jump to the
+I mostly just wanted an extension which could auto-jump to the
 closest anchor above the click point, and from there, copy it if desired.
 
 If you want something which provides options such as highlighting the anchors

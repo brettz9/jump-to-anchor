@@ -1,2 +1,2 @@
 options/jml.js
-lib/browser-polyfill.min.js
+polyfills/browser-polyfill.min.js

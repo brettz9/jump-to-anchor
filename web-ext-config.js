@@ -3,12 +3,9 @@
 module.exports = {
     verbose: true,
     ignoreFiles: [
-        '.DS_Store',
-        '.eslintrc',
-        '.eslintignore',
-        '.remarkrc',
-        '*.zip',
-        '*.xpi',
-        'web-ext-artifacts/**'
+        // Files beginning with dot, zip/xpi, node_modules, and web-ext-artifacts auto-ignored
+        'package-lock.json',
+        'package.json',
+        'screenshots'
     ]
 };
