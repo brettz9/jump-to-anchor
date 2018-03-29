@@ -10,6 +10,8 @@ default to selected text when present.
 Install for [Firefox (AMO)](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/)
 or [Chrome](https://chrome.google.com/webstore/detail/jump-to-anchor/fhbjjkmbahpmoegppmljagmakkeomlmb).
 
+![Screenshot of usage](https://raw.githubusercontent.com/brettz9/jump-to-anchor/master/screenshots/Screen%20Shot%202018-02-12%20at%2010.39.07%20PM.png)
+
 # Detection algorithm
 
 1.  If the clicked node is text, skip to step #3.
