@@ -1,7 +1,12 @@
 /* eslint-env browser, webextensions */
 /* globals jml */
 'use strict';
-document.title = browser.i18n.getMessage('jumpToAnchor'); // If switch to tabs
+
+function _ (...args) {
+    return browser.i18n.getMessage(...args);
+}
+
+document.title = _('jumpToAnchor'); // If switch to tabs
 
 const backgroundPage = browser.extension.getBackgroundPage();
 const isFirefox = backgroundPage.isFirefox;
@@ -12,7 +17,7 @@ const {separateContextMenus = isFirefox} = await browser.storage.local.get(
 );
 jml('section', [
     ['label', [
-        browser.i18n.getMessage('separateContextMenus') + ' ',
+        _('separateContextMenus') + ' ',
         ['input', {
             type: 'checkbox',
             checked: separateContextMenus,
