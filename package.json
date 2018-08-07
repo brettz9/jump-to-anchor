@@ -7,14 +7,14 @@
     "homepage": "https://github.com/brettz9/jump-to-anchor",
     "dependencies": {},
     "devDependencies": {
-        "eslint": "4.19.1",
+        "eslint": "5.3.0",
         "eslint-config-standard": "11.0.0",
-        "eslint-plugin-import": "2.9.0",
-        "eslint-plugin-node": "6.0.1",
-        "eslint-plugin-promise": "3.7.0",
-        "eslint-plugin-standard": "3.0.1",
-        "jamilih": "0.32.0",
-        "webextension-polyfill": "^0.2.1"
+        "eslint-plugin-import": "2.13.0",
+        "eslint-plugin-node": "7.0.1",
+        "eslint-plugin-promise": "3.8.0",
+        "eslint-plugin-standard": "3.1.0",
+        "jamilih": "0.35.0",
+        "webextension-polyfill": "^0.3.0"
     },
     "scripts": {
         "webext-path": "npm run eslint && web-ext run --browser-console -f /Applications/Firefox.app",
@@ -25,7 +25,7 @@
         "webext-dev": "npm run eslint && web-ext run --browser-console -f firefoxdeveloperedition",
         "webext-build": "npm run eslint && web-ext build",
         "eslint": "eslint .",
-        "copy-jamilih": "cp node_modules/jamilih/dist/jml-noinnerh.js options/jml.js",
+        "copy-jamilih": "cp node_modules/jamilih/dist/jml-es-noinnerh.js options/jml.js",
         "copy-polyfill": "cp node_modules/webextension-polyfill/dist/browser-polyfill.min.js polyfills/browser-polyfill.min.js"
     },
     "engines": {},
