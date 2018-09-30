@@ -160,6 +160,7 @@ var doc = typeof document !== 'undefined' && document;
 var XmlSerializer = typeof XMLSerializer !== 'undefined' && XMLSerializer;
 
 // STATIC PROPERTIES
+
 var possibleOptions = ['$plugins', '$map' // Add any other options here
 ];
 
@@ -192,6 +193,13 @@ var NULLABLES = ['dir', // HTMLElement
 'lang', // HTMLElement
 'max', 'min', 'title' // HTMLElement
 ];
+
+var $ = function $(sel) {
+    return doc.querySelector(sel);
+};
+var $$ = function $$(sel) {
+    return [].concat(toConsumableArray(doc.querySelectorAll(sel)));
+};
 
 /**
 * Retrieve the (lower-cased) HTML name of a node
@@ -391,7 +399,8 @@ function _copyOrderedAtts(attArr) {
 function _childrenToJML(node) {
     return function (childNodeJML, i) {
         var cn = node.childNodes[i];
-        cn.parentNode.replaceChild(jml.apply(undefined, toConsumableArray(childNodeJML)), cn);
+        var j = Array.isArray(childNodeJML) ? jml.apply(undefined, toConsumableArray(childNodeJML)) : jml(childNodeJML);
+        cn.parentNode.replaceChild(j, cn);
     };
 }
 
@@ -507,7 +516,7 @@ var jml = function jml() {
                                     template = jml('template', template, doc.body);
                                 }
                             } else if (typeof template === 'string') {
-                                template = doc.querySelector(template);
+                                template = $(template);
                             }
                             jml(template.content.cloneNode(true), shadowRoot);
                         } else {
@@ -662,6 +671,7 @@ var jml = function jml() {
                         break;
                     }case '$document':
                     {
+                        // Todo: Conditionally create XML document
                         var _node2 = doc.implementation.createHTMLDocument();
                         if (attVal.childNodes) {
                             attVal.childNodes.forEach(_childrenToJML(_node2));
@@ -673,12 +683,17 @@ var jml = function jml() {
                                 j++;
                             }
                         } else {
+                            if (attVal.$DOCTYPE) {
+                                var dt = { $DOCTYPE: attVal.$DOCTYPE };
+                                var doctype = jml(dt);
+                                _node2.firstChild.replaceWith(doctype);
+                            }
                             var html = _node2.childNodes[1];
                             var head = html.childNodes[0];
-                            var body = html.childNodes[1];
+                            var _body = html.childNodes[1];
                             if (attVal.title || attVal.head) {
                                 var meta = doc.createElement('meta');
-                                meta.charset = 'utf-8';
+                                meta.setAttribute('charset', 'utf-8');
                                 head.appendChild(meta);
                             }
                             if (attVal.title) {
@@ -688,9 +703,10 @@ var jml = function jml() {
                                 attVal.head.forEach(_appendJML(head));
                             }
                             if (attVal.body) {
-                                attVal.body.forEach(_appendJMLOrText(body));
+                                attVal.body.forEach(_appendJMLOrText(_body));
                             }
                         }
+                        nodes[nodes.length] = _node2;
                         break;
                     }case '$DOCTYPE':
                     {
@@ -715,7 +731,7 @@ var jml = function jml() {
                                 // internalSubset: // Todo
                             };
                         } else {
-                            _node3 = doc.implementation.createDocumentType(attVal.name, attVal.publicId, attVal.systemId);
+                            _node3 = doc.implementation.createDocumentType(attVal.name, attVal.publicId || '', attVal.systemId || '');
                         }
                         nodes[nodes.length] = _node3;
                         break;
@@ -789,7 +805,7 @@ var jml = function jml() {
                             // Todo: Disable this by default unless configuration explicitly allows (for security)
                         }();
 
-                        if (_ret2 === 'break') break;
+                        break;
                     }
 
                 case 'htmlFor':case 'for':
@@ -943,7 +959,9 @@ var jml = function jml() {
                             procValue = [];
                             for (var p in val) {
                                 if (val.hasOwnProperty(p)) {
-                                    procValue.push(p + '=' + '"' + val[p].replace(/"/g, '\\"') + '"');
+                                    procValue.push(p + '=' + '"' +
+                                    // https://www.w3.org/TR/xml-stylesheet/#NT-PseudoAttValue
+                                    val[p].replace(/"/g, '&quot;') + '"');
                                 }
                             }
                             procValue = procValue.join(' ');
@@ -1394,7 +1412,7 @@ jml.toJML = function (dom, config) {
             case 12:
                 // NOTATION
                 start = { $NOTATION: { name: node.nodeName } };
-                addExternalID(start.$NOTATION, node, true);
+                addExternalID(start.$NOTATION, node);
                 set$$1(start);
                 break;
             default:
@@ -1446,13 +1464,13 @@ var JamilihMap = function (_Map) {
     createClass(JamilihMap, [{
         key: 'get',
         value: function get$$1(elem) {
-            elem = typeof elem === 'string' ? doc.querySelector(elem) : elem;
+            elem = typeof elem === 'string' ? $(elem) : elem;
             return get(JamilihMap.prototype.__proto__ || Object.getPrototypeOf(JamilihMap.prototype), 'get', this).call(this, elem);
         }
     }, {
         key: 'set',
         value: function set$$1(elem, value) {
-            elem = typeof elem === 'string' ? doc.querySelector(elem) : elem;
+            elem = typeof elem === 'string' ? $(elem) : elem;
             return get(JamilihMap.prototype.__proto__ || Object.getPrototypeOf(JamilihMap.prototype), 'set', this).call(this, elem, value);
         }
     }, {
@@ -1460,7 +1478,7 @@ var JamilihMap = function (_Map) {
         value: function invoke(elem, methodName) {
             var _get;
 
-            elem = typeof elem === 'string' ? doc.querySelector(elem) : elem;
+            elem = typeof elem === 'string' ? $(elem) : elem;
 
             for (var _len3 = arguments.length, args = Array(_len3 > 2 ? _len3 - 2 : 0), _key3 = 2; _key3 < _len3; _key3++) {
                 args[_key3 - 2] = arguments[_key3];
@@ -1483,13 +1501,13 @@ var JamilihWeakMap = function (_WeakMap) {
     createClass(JamilihWeakMap, [{
         key: 'get',
         value: function get$$1(elem) {
-            elem = typeof elem === 'string' ? doc.querySelector(elem) : elem;
+            elem = typeof elem === 'string' ? $(elem) : elem;
             return get(JamilihWeakMap.prototype.__proto__ || Object.getPrototypeOf(JamilihWeakMap.prototype), 'get', this).call(this, elem);
         }
     }, {
         key: 'set',
         value: function set$$1(elem, value) {
-            elem = typeof elem === 'string' ? doc.querySelector(elem) : elem;
+            elem = typeof elem === 'string' ? $(elem) : elem;
             return get(JamilihWeakMap.prototype.__proto__ || Object.getPrototypeOf(JamilihWeakMap.prototype), 'set', this).call(this, elem, value);
         }
     }, {
@@ -1497,7 +1515,7 @@ var JamilihWeakMap = function (_WeakMap) {
         value: function invoke(elem, methodName) {
             var _get2;
 
-            elem = typeof elem === 'string' ? doc.querySelector(elem) : elem;
+            elem = typeof elem === 'string' ? $(elem) : elem;
 
             for (var _len4 = arguments.length, args = Array(_len4 > 2 ? _len4 - 2 : 0), _key4 = 2; _key4 < _len4; _key4++) {
                 args[_key4 - 2] = arguments[_key4];
@@ -1535,12 +1553,12 @@ jml.strong = function (obj) {
 };
 
 jml.symbol = jml.sym = jml.for = function (elem, sym) {
-    elem = typeof elem === 'string' ? doc.querySelector(elem) : elem;
+    elem = typeof elem === 'string' ? $(elem) : elem;
     return elem[(typeof sym === 'undefined' ? 'undefined' : _typeof(sym)) === 'symbol' ? sym : Symbol.for(sym)];
 };
 
 jml.command = function (elem, symOrMap, methodName) {
-    elem = typeof elem === 'string' ? doc.querySelector(elem) : elem;
+    elem = typeof elem === 'string' ? $(elem) : elem;
     var func = void 0;
 
     for (var _len7 = arguments.length, args = Array(_len7 > 3 ? _len7 - 3 : 0), _key7 = 3; _key7 < _len7; _key7++) {
@@ -1574,6 +1592,9 @@ jml.setWindow = function (wind) {
 };
 jml.setDocument = function (docum) {
     doc = docum;
+    if (docum && docum.body) {
+        body = docum.body;
+    }
 };
 jml.setXMLSerializer = function (xmls) {
     XmlSerializer = xmls;
@@ -1589,4 +1610,9 @@ jml.getXMLSerializer = function () {
     return XmlSerializer;
 };
 
+var body = doc && doc.body;
+
+var nbsp = '\xA0'; // Very commonly needed in templates
+
 export default jml;
+export { jml, $, $$, nbsp, body };
