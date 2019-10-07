@@ -1,3 +1,8 @@
+# ?
+
+- Enhancement: Use lighter-weight, lesser-privileged `activeTab` permission
+    over `content_scripts`.
+
 # 0.10.0
 
 - Fix: Avoid race conditions in Promises (options page, background message

@@ -8,13 +8,7 @@
   "version": "0.10.0",
   "homepage_url": "https://github.com/brettz9/jump-to-anchor/",
 
-  "permissions": ["contextMenus", "storage"],
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": ["polyfills/browser-polyfill.min.js", "lib/content.js"],
-    "run_at": "document_start",
-    "all_frames": true
-  }],
+  "permissions": ["activeTab", "contextMenus", "storage"],
 
   "background": {
     "scripts": ["polyfills/browser-polyfill.min.js", "lib/background.js"]

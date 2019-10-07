@@ -44,10 +44,3 @@ on a page or adds context menu items to copy and bookmark the anchors, see
 The icon for this extension was obtained (and SVG optimized) from
 <https://commons.wikimedia.org/wiki/File:Hash-transbg.svg> under the
 Creative Commons CC0 1.0 Universal Public Domain Dedication.
-
-# To-dos
-
-1. Convert to lighter-performance, and lesser-privileged `activeTab`
-    privilege; see <https://bugzilla.mozilla.org/show_bug.cgi?id=1325814>;
-    however, my attempt on the `failed-attempt-activeTab` branch did
-    not succeed

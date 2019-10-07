@@ -9,7 +9,6 @@ module.exports = {
   },
   "settings": {
       "polyfills": [
-          "document.caretRangeFromPoint",
           "Promise.all"
       ]
   },
