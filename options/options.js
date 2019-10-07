@@ -1,5 +1,5 @@
 /* eslint-env browser, webextensions */
-import jml from './jml.js';
+import {jml, body} from './jml.js';
 
 function _ (...args) {
     return browser.i18n.getMessage(...args);
@@ -7,10 +7,9 @@ function _ (...args) {
 
 document.title = _('jumpToAnchor'); // If switch to tabs
 
-const backgroundPage = browser.extension.getBackgroundPage();
-const isFirefox = backgroundPage.isFirefox;
-
 (async () => {
+const backgroundPage = await browser.extension.getBackgroundPage();
+const {isFirefox} = backgroundPage;
 const {separateContextMenus = isFirefox} = await browser.storage.local.get(
     'separateContextMenus'
 );
@@ -30,5 +29,5 @@ jml('section', [
             }
         }]
     ]]
-], document.body);
+], body);
 })();

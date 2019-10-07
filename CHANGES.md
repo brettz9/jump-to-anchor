@@ -1,3 +1,13 @@
+# 0.10.0
+
+- Fix: Avoid race conditions in Promises (options page, background message
+    sending and menu removal)
+- Linting (ESLint): Switch to ash-nazg and lint any HTML/Markdown; use
+    "js" extension
+- Build: Update `webextension-polyfill` and `jamilih` copies
+- npm: Update devDeps; add `copy` script
+- yarn: Remove `yarn.lock`
+
 # 0.9.0
 
 - Breaking change: For Chrome, default to merging context menu items
