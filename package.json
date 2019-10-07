@@ -37,7 +37,7 @@
         "webext-dev": "npm run eslint && web-ext run --browser-console -f firefoxdeveloperedition",
         "webext-build": "npm run eslint && web-ext build",
         "eslint": "eslint --ext=js,html,md .",
-        "copy-jamilih": "cp node_modules/jamilih/dist/jml-es-noinnerh.js options/jml.js",
+        "copy-jamilih": "cp node_modules/jamilih/dist/jml-noinnerh.js options/jml.js",
         "copy-polyfill": "cp node_modules/webextension-polyfill/dist/browser-polyfill.min.js polyfills/browser-polyfill.min.js",
         "copy": "npm run copy-jamilih && npm run copy-polyfill"
     },

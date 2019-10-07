@@ -16,7 +16,10 @@ module.exports = {
   "overrides": [
       {
           extends: ["ash-nazg", "plugin:node/recommended-script"],
-          files: ["lib/background.js", "lib/content.js", "web-ext-config.js"],
+          files: [
+              "lib/background.js", "lib/content.js", "web-ext-config.js",
+              "options/options.js"
+          ],
           rules: {
             "indent": ["error", 4, {"outerIIFEBody": 0}]
           }

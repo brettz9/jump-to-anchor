@@ -1,5 +1,6 @@
 /* eslint-env browser, webextensions */
-import {jml, body} from './jml.js';
+'use strict';
+const {body, jml} = window.jml;
 
 function _ (...args) {
     return browser.i18n.getMessage(...args);
