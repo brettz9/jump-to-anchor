@@ -7,7 +7,7 @@ Has option (on by default) on providing separate menu items for jumping to
 an anchor relative to selected text vs. the click point. Will otherwise always
 default to selected text when present.
 
-Install for [Firefox (AMO)](https://addons.mozilla.org/en-US/firefox/addon/jump-to-anchor/)
+Install for [Firefox (AMO)](https://addons.mozilla.org/firefox/addon/jump-to-anchor/)
 or [Chrome](https://chrome.google.com/webstore/detail/jump-to-anchor/fhbjjkmbahpmoegppmljagmakkeomlmb).
 
 ![Screenshot of usage](https://raw.githubusercontent.com/brettz9/jump-to-anchor/master/screenshots/Screen%20Shot%202018-02-12%20at%2010.39.07%20PM.png)
@@ -35,9 +35,11 @@ or [Chrome](https://chrome.google.com/webstore/detail/jump-to-anchor/fhbjjkmbahp
 I mostly just wanted an extension which could auto-jump to the
 closest anchor above the click point, and from there, copy it if desired.
 
-If you want something which provides options such as highlighting the anchors
-on a page or adds context menu items to copy and bookmark the anchors, see
-[Show Anchors 2](https://addons.mozilla.org/en-US/firefox/addon/show-anchors-2/).
+You might find other features (e.g., revealing all anchors on the page),
+you might look at:
+
+- [Anchors reveal](https://addons.mozilla.org/addon/anchors-reveal/)
+- [Display #Anchors](https://addons.mozilla.org/addon/display-_anchors/)
 
 # Credits
 
