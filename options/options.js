@@ -1,13 +1,19 @@
-/* eslint-env browser, webextensions */
+/* eslint-env browser, webextensions -- The environment */
 'use strict';
 const {body, jml} = window.jml;
 
+/**
+ *
+ * @param {...any} args
+ * @returns {string}
+ */
 function _ (...args) {
     return browser.i18n.getMessage(...args);
 }
 
 document.title = _('jumpToAnchor'); // If switch to tabs
 
+// eslint-disable-next-line unicorn/prefer-top-level-await -- Envt
 (async () => {
 const backgroundPage = await browser.extension.getBackgroundPage();
 const {isFirefox} = backgroundPage;

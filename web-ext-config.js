@@ -1,9 +1,10 @@
-/* eslint-env node */
+/* eslint-env node -- The environment */
 'use strict';
 module.exports = {
     verbose: true,
     ignoreFiles: [
-        // Files beginning with dot, zip/xpi, node_modules, and web-ext-artifacts auto-ignored
+        // Files beginning with dot, zip/xpi, node_modules,
+        //  and web-ext-artifacts auto-ignored
         'package-lock.json',
         'package.json',
         'screenshots'
