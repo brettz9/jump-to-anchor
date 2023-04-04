@@ -1,6 +1,7 @@
 /* eslint-env browser, webextensions -- The environment */
-'use strict';
-const {body, jml} = window.jml;
+
+import '../polyfills/browser-polyfill.min.js';
+import {jml, body} from './jml.js';
 
 /**
  *
