@@ -17,7 +17,9 @@ document.title = _('jumpToAnchor'); // If switch to tabs
 (async () => {
 const backgroundPage = await browser.extension.getBackgroundPage();
 const {isFirefox} = backgroundPage;
-const {separateContextMenus = isFirefox} = await browser.storage.local.get(
+const {
+    separateContextMenus = await isFirefox()
+} = await browser.storage.local.get(
     'separateContextMenus'
 );
 jml('section', [
