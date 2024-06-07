@@ -25,7 +25,9 @@
   ],
   "background": {
     "type": "module",
-    "service_worker": "lib/background.js"
+    "scripts": [
+      "lib/background.js"
+    ]
   },
   "options_ui": {
     "page": "options/options.html",

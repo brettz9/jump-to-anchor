@@ -25,23 +25,49 @@ port.onMessage.addListener(async ({message, isFirefox}) => {
     } = await browser.storage.local.get(
         'separateContextMenus'
     );
-    jml('section', [
-        ['label', [
-            _('separateContextMenus') + ' ',
-            ['input', {
-                type: 'checkbox',
-                checked: separateContextMenus,
-                $on: {
-                    async change () {
-                        await browser.storage.local.set({
-                            separateContextMenus: this.checked
-                        });
-                        // eslint-disable-next-line max-len -- Long
-                        // eslint-disable-next-line unicorn/require-post-message-target-origin -- WebExt
-                        port.postMessage({message: 'updateContextMenus'});
+
+    const {enableCopyContextMenu} = await browser.storage.local.get(
+        'enableCopyContextMenu'
+    );
+
+    jml('main', [
+        ['section', [
+            ['label', [
+                _('separateContextMenus') + ' ',
+                ['input', {
+                    type: 'checkbox',
+                    checked: separateContextMenus,
+                    $on: {
+                        async change () {
+                            await browser.storage.local.set({
+                                separateContextMenus: this.checked
+                            });
+                            // eslint-disable-next-line max-len -- Long
+                            // eslint-disable-next-line unicorn/require-post-message-target-origin -- WebExt
+                            port.postMessage({message: 'updateContextMenus'});
+                        }
                     }
-                }
-            }]
+                }]
+            ]]
+        ]],
+        ['section', [
+            ['label', [
+                _('enableCopyContextMenu') + ' ',
+                ['input', {
+                    type: 'checkbox',
+                    checked: enableCopyContextMenu,
+                    $on: {
+                        async change () {
+                            await browser.storage.local.set({
+                                enableCopyContextMenu: this.checked
+                            });
+                            // eslint-disable-next-line max-len -- Long
+                            // eslint-disable-next-line unicorn/require-post-message-target-origin -- WebExt
+                            port.postMessage({message: 'updateContextMenus'});
+                        }
+                    }
+                }]
+            ]]
         ]]
     ], body);
 });
