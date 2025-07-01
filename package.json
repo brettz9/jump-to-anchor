@@ -1,33 +1,19 @@
 {
     "name": "jump-to-anchor",
     "author": "Brett Zamir",
+    "type": "module",
     "contributors": [],
     "version": "0.11.0",
     "license": "MIT",
     "homepage": "https://github.com/brettz9/jump-to-anchor",
     "dependencies": {},
     "devDependencies": {
-        "@brettz9/eslint-plugin": "^1.0.4",
-        "convert-manifest-format": "^0.2.3",
-        "eslint": "^8.37.0",
-        "eslint-config-ash-nazg": "^34.9.0",
-        "eslint-config-standard": "^17.0.0",
-        "eslint-plugin-array-func": "^3.1.8",
-        "eslint-plugin-compat": "^4.1.2",
-        "eslint-plugin-eslint-comments": "^3.2.0",
-        "eslint-plugin-html": "^7.1.0",
-        "eslint-plugin-import": "^2.27.5",
-        "eslint-plugin-jsdoc": "^40.1.1",
-        "eslint-plugin-markdown": "^3.0.0",
-        "eslint-plugin-no-use-extend-native": "^0.5.0",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-promise": "^6.1.1",
-        "eslint-plugin-sonarjs": "^0.19.0",
-        "eslint-plugin-standard": "^4.1.0",
-        "eslint-plugin-unicorn": "^46.0.0",
-        "jamilih": "0.54.0",
-        "typescript": "^5.0.3",
-        "webextension-polyfill": "^0.10.0"
+        "convert-manifest-format": "^0.6.0",
+        "eslint": "^9.30.0",
+        "eslint-config-ash-nazg": "^38.0.2",
+        "jamilih": "0.60.0",
+        "typescript": "^5.8.3",
+        "webextension-polyfill": "^0.12.0"
     },
     "scripts": {
         "chrome": "convert-manifest-format --chrome && npm run webext-build",
@@ -45,6 +31,9 @@
         "copy-polyfill": "cp node_modules/webextension-polyfill/dist/browser-polyfill.min.js polyfills/browser-polyfill.min.js",
         "copy": "npm run copy-jamilih && npm run copy-polyfill"
     },
+    "browserslist": [
+        "last 2 Firefox versions"
+    ],
     "engines": {},
     "repository": {
         "type": "git",
