@@ -8,11 +8,11 @@
     "homepage": "https://github.com/brettz9/jump-to-anchor",
     "dependencies": {},
     "devDependencies": {
-        "convert-manifest-format": "^0.6.0",
-        "eslint": "^9.30.0",
-        "eslint-config-ash-nazg": "^38.0.2",
+        "convert-manifest-format": "^0.9.0",
+        "eslint": "^9.34.0",
+        "eslint-config-ash-nazg": "^39.0.1",
         "jamilih": "0.60.0",
-        "typescript": "^5.8.3",
+        "typescript": "^5.9.2",
         "webextension-polyfill": "^0.12.0"
     },
     "scripts": {
