@@ -7,6 +7,7 @@
     "license": "MIT",
     "homepage": "https://github.com/brettz9/jump-to-anchor",
     "devDependencies": {
+        "@types/webextension-polyfill": "^0.12.4",
         "convert-manifest-format": "^0.9.0",
         "eslint": "^9.39.0",
         "eslint-config-ash-nazg": "^39.6.1",
@@ -14,6 +15,7 @@
         "webextension-polyfill": "^0.12.0"
     },
     "scripts": {
+        "tsc": "tsc",
         "chrome": "convert-manifest-format --chrome && npm run webext-build",
         "firefox": "convert-manifest-format --firefox && npm run webext-build",
         "webext-path": "npm run eslint && web-ext run --browser-console -f /Applications/Firefox.app",
@@ -25,8 +27,8 @@
         "webext-build": "npm run eslint && web-ext build --overwrite-dest",
         "eslint": "eslint --ext=js,html,md .",
         "lint": "npm run eslint",
-        "copy-jamilih": "cp node_modules/jamilih/dist/jml-es-noinnerh.js options/jml.js",
-        "copy-polyfill": "cp node_modules/webextension-polyfill/dist/browser-polyfill.min.js polyfills/browser-polyfill.min.js",
+        "copy-jamilih": "cp node_modules/jamilih/dist/jml-es-noinnerh.js options/jml.js && cp node_modules/jamilih/dist/jml.d.ts options/jml.d.ts",
+        "copy-polyfill": "cp node_modules/webextension-polyfill/dist/browser-polyfill.min.js polyfills/browser-polyfill.min.js && cp node_modules/@types/webextension-polyfill/index.d.ts polyfills/browser-polyfill.min.d.ts",
         "copy": "npm run copy-jamilih && npm run copy-polyfill"
     },
     "browserslist": [
